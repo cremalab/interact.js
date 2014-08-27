@@ -246,18 +246,18 @@
                         options = target.options.autoScroll;
 
                     if (options.container instanceof window.Window) {
-                        left   = event.clientX < autoScroll.margin;
-                        top    = event.clientY < autoScroll.margin;
-                        right  = event.clientX > options.container.innerWidth  - autoScroll.margin;
-                        bottom = event.clientY > options.container.innerHeight - autoScroll.margin;
+                        left   = event.pageX < autoScroll.margin;
+                        top    = event.pageY < autoScroll.margin;
+                        right  = event.pageX > options.container.innerWidth  - autoScroll.margin;
+                        bottom = event.pageY > options.container.innerHeight - autoScroll.margin;
                     }
                     else {
                         var rect = getElementRect(options.container);
 
-                        left   = event.clientX < rect.left   + autoScroll.margin;
-                        top    = event.clientY < rect.top    + autoScroll.margin;
-                        right  = event.clientX > rect.right  - autoScroll.margin;
-                        bottom = event.clientY > rect.bottom - autoScroll.margin;
+                        left   = event.pageX < rect.left   + autoScroll.margin;
+                        top    = event.pageY < rect.top    + autoScroll.margin;
+                        right  = event.pageX > rect.right  - autoScroll.margin;
+                        bottom = event.pageY > rect.bottom - autoScroll.margin;
                     }
 
                     autoScroll.x = (right ? 1: left? -1: 0);
